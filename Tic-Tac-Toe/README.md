@@ -1,4 +1,5 @@
 # 🎮 Tic-Tac-Toe  
+![image alt](https://github.com/PranavHendre02/Games/blob/57dd1288f3e0bd67bb05c6e8750ce886416a5b92/Tic-Tac-Toe/TIC-TAC-TOE.png)
 
 🔗 **Live Demo:** [Play Now](https://pranavhendre02.github.io/Tic-Tac-Toe/)  
 
