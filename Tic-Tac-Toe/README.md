@@ -40,7 +40,7 @@ This is a **classic Tic-Tac-Toe game** built using **HTML, CSS, and JavaScript**
 
 1. **Clone the repository**:  
    ```sh
-   git clone https://github.com/PranavHendre02/Tic-Tac-Toe.git
+   https://github.com/PranavHendre02/Games.git
    ```
 2. Open the project folder and run `index.html` in a browser.  
 3. Start playing and enjoy!  
