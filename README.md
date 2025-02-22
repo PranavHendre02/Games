@@ -28,7 +28,7 @@ JavaScript (ES6) - Core game logic, event handling, and interactivity.
 
 Clone the repository:
 
-git clone https://github.com/PranavHendre02/JavaScript-Games.git
+git clone [LINK](https://github.com/PranavHendre02/Games.git)
 
 Open the project folder and launch any game by opening index.html in a browser.
 
