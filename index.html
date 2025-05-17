@@ -4,18 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Games</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             background: linear-gradient(to bottom right, #0B0E29, #4B0082);
             color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
+        
         header, footer {
             background: linear-gradient(to right, #00B7EB, #FF007F);
             padding: 1rem;
             text-align: center;
         }
+        
         nav {
             display: flex;
             justify-content: space-between;
@@ -23,11 +29,14 @@
             max-width: 1000px;
             margin: 0 auto;
         }
+        
         nav h1 {
             font-size: 1.5rem;
             font-weight: bold;
             text-transform: uppercase;
+            margin: 0;
         }
+        
         nav ul {
             list-style: none;
             padding: 0;
@@ -35,6 +44,7 @@
             display: flex;
             gap: 1rem;
         }
+        
         nav ul li a {
             color: white;
             text-decoration: none;
@@ -42,6 +52,7 @@
             text-transform: uppercase;
             position: relative;
         }
+        
         nav ul li a::after {
             content: '';
             position: absolute;
@@ -52,80 +63,136 @@
             background-color: #39FF14;
             transition: width 0.3s ease-in-out;
         }
+        
         nav ul li a:hover::after {
             width: 100%;
         }
+        
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+        
         .games-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
+            gap: 1.5rem;
             max-width: 1000px;
-            margin: 100px auto 40px;
+            width: 100%;
             padding: 1rem;
         }
+        
         .game-box {
-            background-color: #333;
-            padding: 1rem;
+            background-color: rgba(51, 51, 51, 0.8);
+            padding: 1.5rem;
             text-align: center;
             border-radius: 8px;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+        
         .game-box:hover {
-            transform: scale(1.05);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
         }
-        .game-box img {
-            width: 50px;
-            height: 50px;
+        
+        .game-box i {
+            font-size: 2.5rem;
+            color: #06B6D4;
+            margin-bottom: 0.5rem;
         }
+        
         .game-box span {
             display: block;
             margin-top: 0.5rem;
             font-weight: bold;
             color: #39FF14;
+            font-size: 1.1rem;
         }
+        
         .coming-soon {
             margin-top: 0.5rem;
             color: white;
             font-size: 0.85rem;
         }
+        
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            gap: 1.5rem;
             margin-top: 1rem;
+            flex-wrap: wrap;
         }
+        
         .social-links a {
             color: white;
             text-decoration: none;
             font-weight: bold;
             display: flex;
             align-items: center;
+            transition: color 0.3s;
         }
-        .social-links img {
+        
+        .social-links a:hover {
+            color: #39FF14;
+        }
+        
+        .social-links i {
             margin-right: 0.5rem;
         }
+        
+        footer {
+            margin-top: auto;
+        }
+        
         @media (max-width: 768px) {
+            nav {
+                position: relative;
+            }
+            
             nav ul {
                 flex-direction: column;
                 background: linear-gradient(to right, #06b6d4, #ec4899);
                 position: absolute;
-                top: 64px;
+                top: 100%;
                 left: 0;
                 width: 100%;
                 padding: 1rem;
                 display: none;
+                z-index: 100;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             }
+            
             nav ul.show {
                 display: flex;
             }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
             #hamburger {
                 display: block;
                 background: none;
                 border: none;
                 color: white;
                 font-size: 1.5rem;
+                cursor: pointer;
+            }
+            
+            .games-container {
+                grid-template-columns: 1fr;
+                max-width: 300px;
             }
         }
+        
         @media (min-width: 769px) {
             #hamburger {
                 display: none;
@@ -137,22 +204,24 @@
     <header>
         <nav>
             <h1>Games</h1>
-            <button id="hamburger">☰</button>
+            <button id="hamburger" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
             <ul id="nav-links">
-                <li><a href="Tic-Tac-Toe/index.html">Tic-Tac-Toe</a></li>
-                <li><a href="Flappy bird/index.html">Flappy Bird</a></li>
+                <li><a href="tic-tac-toe/index.html">Tic-Tac-Toe</a></li>
+                <li><a href="flappy-bird/index.html">Flappy Bird</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <div class="games-container">
-            <a href="Tic-Tac-Toe/index.html" class="game-box">
-                <img src="https://img.icons8.com/ios-filled/50/06B6D4/grid.png" alt="Tic-Tac-Toe">
+            <a href="tic-tac-toe/index.html" class="game-box">
+                <i class="fas fa-th"></i>
                 <span>Tic-Tac-Toe</span>
             </a>
-            <a href="Flappy bird/index.html" class="game-box">
-                <img src="https://img.icons8.com/ios-filled/50/06B6D4/bird.png" alt="Flappy Bird">
+            <a href="flappy-bird/index.html" class="game-box">
+                <i class="fas fa-dove"></i>
                 <span>Flappy Bird</span>
                 <div class="coming-soon">More Games to Come!</div>
             </a>
@@ -162,27 +231,38 @@
     <footer>
         <p><strong>Made by Pranav</strong></p>
         <div class="social-links">
-            <a href="https://github.com/PranavHendre02" target="_blank">
-                <img src="https://img.icons8.com/ios-filled/24/FFFFFF/github.png" alt="GitHub" width="24" height="24">
+            <a href="https://github.com/PranavHendre02" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i>
                 GitHub
             </a>
-            <a href="https://www.linkedin.com/in/pranav-hendre-b07339316/" target="_blank">
-                <img src="https://img.icons8.com/ios-filled/24/FFFFFF/linkedin.png" alt="LinkedIn" width="24" height="24">
+            <a href="https://www.linkedin.com/in/pranav-hendre-b07339316/" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin"></i>
                 LinkedIn
             </a>
-            <a href="https://www.instagram.com/pranavhendre02/" target="_blank">
-                <img src="https://img.icons8.com/ios-filled/24/FFFFFF/instagram-new.png" alt="Instagram" width="24" height="24">
+            <a href="https://www.instagram.com/pranavhendre02/" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-instagram"></i>
                 Instagram
             </a>
         </div>
     </footer>
 
     <script>
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('nav-links');
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('nav-links');
 
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('show');
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', function() {
+                    navLinks.classList.toggle('show');
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!hamburger.contains(event.target) && !navLinks.contains(event.target)) {
+                        navLinks.classList.remove('show');
+                    }
+                });
+            }
         });
     </script>
 </body>
